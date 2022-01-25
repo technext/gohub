@@ -1,11 +1,5 @@
 "use strict";
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -26,19 +20,27 @@ var docReady = function docReady(fn) {
   }
 };
 
+var isRTL = function isRTL() {
+  return document.querySelector('html').getAttribute('dir') === 'rtl';
+};
+
 var resize = function resize(fn) {
   return window.addEventListener('resize', fn);
 };
+/*eslint consistent-return: */
+
 
 var isIterableArray = function isIterableArray(array) {
   return Array.isArray(array) && !!array.length;
 };
 
 var camelize = function camelize(str) {
-  var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
-    return c ? c.toUpperCase() : '';
-  });
-  return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
+  if (str) {
+    var text = str.replace(/[-_\s.]+(.)?/g, function (_, c) {
+      return c ? c.toUpperCase() : '';
+    });
+    return "".concat(text.substr(0, 1).toLowerCase()).concat(text.substr(1));
+  }
 };
 
 var getData = function getData(el, data) {
@@ -70,30 +72,53 @@ var rgbaColor = function rgbaColor() {
 /* --------------------------------- Colors --------------------------------- */
 
 
-var colors = {
-  primary: '#0057FF',
-  secondary: '#748194',
-  success: '#00d27a',
-  info: '#27bcfd',
-  warning: '#f5803e',
-  danger: '#e63757',
-  light: '#f9fafd',
-  dark: '#000'
+var getColor = function getColor(name) {
+  var dom = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : document.documentElement;
+  return getComputedStyle(dom).getPropertyValue("--gohub-".concat(name)).trim();
 };
-var grays = {
-  white: '#fff',
-  100: '#f9fafd',
-  200: '#edf2f9',
-  300: '#d8e2ef',
-  400: '#b6c1d2',
-  500: '#9da9bb',
-  600: '#748194',
-  700: '#5e6e82',
-  800: '#4d5969',
-  900: '#344050',
-  1000: '#232e3c',
-  1100: '#0b1727',
-  black: '#000'
+
+var getColors = function getColors(dom) {
+  return {
+    primary: getColor('primary', dom),
+    secondary: getColor('secondary', dom),
+    success: getColor('success', dom),
+    info: getColor('info', dom),
+    warning: getColor('warning', dom),
+    danger: getColor('danger', dom),
+    light: getColor('light', dom),
+    dark: getColor('dark', dom)
+  };
+};
+
+var getSoftColors = function getSoftColors(dom) {
+  return {
+    primary: getColor('soft-primary', dom),
+    secondary: getColor('soft-secondary', dom),
+    success: getColor('soft-success', dom),
+    info: getColor('soft-info', dom),
+    warning: getColor('soft-warning', dom),
+    danger: getColor('soft-danger', dom),
+    light: getColor('soft-light', dom),
+    dark: getColor('soft-dark', dom)
+  };
+};
+
+var getGrays = function getGrays(dom) {
+  return {
+    white: getColor('white', dom),
+    100: getColor('100', dom),
+    200: getColor('200', dom),
+    300: getColor('300', dom),
+    400: getColor('400', dom),
+    500: getColor('500', dom),
+    600: getColor('600', dom),
+    700: getColor('700', dom),
+    800: getColor('800', dom),
+    900: getColor('900', dom),
+    1000: getColor('1000', dom),
+    1100: getColor('1100', dom),
+    black: getColor('black', dom)
+  };
 };
 
 var hasClass = function hasClass(el, className) {
@@ -134,13 +159,25 @@ var isScrolledIntoView = function isScrolledIntoView(el) {
   };
 };
 
+var isElementIntoView = function isElementIntoView(el) {
+  var position = el.getBoundingClientRect(); // checking whether fully visible
+
+  if (position.top >= 0 && position.bottom <= window.innerHeight) {
+    return true;
+  } // checking for partial visibility
+
+
+  if (position.top < window.innerHeight && position.bottom >= 0) {
+    return true;
+  }
+};
+
 var breakpoints = {
   xs: 0,
   sm: 576,
   md: 768,
   lg: 992,
-  xl: 1200,
-  xxl: 1540
+  xl: 1200
 };
 
 var getBreakpoint = function getBreakpoint(el) {
@@ -154,6 +191,26 @@ var getBreakpoint = function getBreakpoint(el) {
   }
 
   return breakpoint;
+};
+
+var getCurrentScreenBreakpoint = function getCurrentScreenBreakpoint() {
+  var currentBreakpoint = '';
+
+  if (window.innerWidth >= breakpoints.xl) {
+    currentBreakpoint = 'xl';
+  } else if (window.innerWidth >= breakpoints.lg) {
+    currentBreakpoint = 'lg';
+  } else if (window.innerWidth >= breakpoints.md) {
+    currentBreakpoint = 'md';
+  } else {
+    currentBreakpoint = 'sm';
+  }
+
+  var breakpointStartVal = breakpoints[currentBreakpoint];
+  return {
+    currentBreakpoint: currentBreakpoint,
+    breakpointStartVal: breakpointStartVal
+  };
 };
 /* --------------------------------- Cookie --------------------------------- */
 
@@ -205,6 +262,51 @@ var getStoreSpace = function getStoreSpace() {
   var store = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : localStorage;
   return parseFloat((escape(encodeURIComponent(JSON.stringify(store))).length / (1024 * 1024)).toFixed(2));
 };
+/* get Dates between */
+
+
+var getDates = function getDates(startDate, endDate) {
+  var interval = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1000 * 60 * 60 * 24;
+  var duration = endDate - startDate;
+  var steps = duration / interval;
+  return Array.from({
+    length: steps + 1
+  }, function (v, i) {
+    return new Date(startDate.valueOf() + interval * i);
+  });
+};
+
+var getPastDates = function getPastDates(duration) {
+  var days;
+
+  switch (duration) {
+    case 'week':
+      days = 7;
+      break;
+
+    case 'month':
+      days = 30;
+      break;
+
+    case 'year':
+      days = 365;
+      break;
+
+    default:
+      days = duration;
+  }
+
+  var date = new Date();
+  var endDate = date;
+  var startDate = new Date(new Date().setDate(date.getDate() - (days - 1)));
+  return getDates(startDate, endDate);
+};
+/* Get Random Number */
+
+
+var getRandomNumber = function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min) + min);
+};
 
 var utils = {
   docReady: docReady,
@@ -216,8 +318,10 @@ var utils = {
   addClass: addClass,
   hexToRgb: hexToRgb,
   rgbaColor: rgbaColor,
-  colors: colors,
-  grays: grays,
+  getColor: getColor,
+  getColors: getColors,
+  getSoftColors: getSoftColors,
+  getGrays: getGrays,
   getOffset: getOffset,
   isScrolledIntoView: isScrolledIntoView,
   getBreakpoint: getBreakpoint,
@@ -227,7 +331,14 @@ var utils = {
   settings: settings,
   getItemFromStore: getItemFromStore,
   setItemToStore: setItemToStore,
-  getStoreSpace: getStoreSpace
+  getStoreSpace: getStoreSpace,
+  getDates: getDates,
+  getPastDates: getPastDates,
+  getRandomNumber: getRandomNumber,
+  getCurrentScreenBreakpoint: getCurrentScreenBreakpoint,
+  breakpoints: breakpoints,
+  isElementIntoView: isElementIntoView,
+  isRTL: isRTL
 };
 /* -------------------------------------------------------------------------- */
 
@@ -362,7 +473,7 @@ var navbarInit = function navbarInit() {
     HIDDEN_BS_COLLAPSE: 'hidden.bs.collapse'
   };
   var DataKey = {
-    NAVBAR_ON_SCROLL: 'navbar-light-on-scroll'
+    NAVBAR_ON_SCROLL: 'navbar-on-scroll'
   };
   var navbar = document.querySelector(Selector.NAVBAR);
 
@@ -370,12 +481,9 @@ var navbarInit = function navbarInit() {
     var windowHeight = window.innerHeight;
     var html = document.documentElement;
     var navbarCollapse = navbar.querySelector(Selector.NAVBAR_COLLAPSE);
-
-    var allColors = _objectSpread(_objectSpread({}, utils.colors), utils.grays);
-
     var name = utils.getData(navbar, DataKey.NAVBAR_ON_SCROLL);
-    var colorName = Object.keys(allColors).includes(name) ? name : 'light';
-    var color = allColors[colorName];
+    var colorName = name || 'light';
+    var color = utils.getColor(colorName);
     var bgClassName = "bg-".concat(colorName);
     var shadowName = 'shadow-transition';
     var colorRgb = utils.hexToRgb(color);
@@ -427,6 +535,321 @@ var navbarInit = function navbarInit() {
     });
   }
 };
+/*-----------------------------------------------
+|    Zanimation
+-----------------------------------------------*/
+
+/*
+global CustomEase, gsap
+*/
+
+
+CustomEase.create('CubicBezier', '.77,0,.18,1');
+/*-----------------------------------------------
+|   Global Functions
+-----------------------------------------------*/
+
+var zanimationInit = function zanimationInit() {
+  var filterBlur = function filterBlur() {
+    var blur = 'blur(5px)'; // (window.is.iphone() || window.is.ipad() || window.is.ipod() && window.is.firefox())
+    // || (window.is.mac() && window.is.firefox())
+
+    var isIpadIphoneMacFirefox = (window.is.ios() || window.is.mac()) && window.is.firefox();
+
+    if (isIpadIphoneMacFirefox) {
+      blur = 'blur(0px)';
+    }
+
+    return blur;
+  };
+
+  var zanimationEffects = {
+    "default": {
+      from: {
+        opacity: 0,
+        y: 70
+      },
+      to: {
+        opacity: 1,
+        y: 0
+      },
+      ease: 'CubicBezier',
+      duration: 0.8,
+      delay: 0
+    },
+    'slide-down': {
+      from: {
+        opacity: 0,
+        y: -70
+      },
+      to: {
+        opacity: 1,
+        y: 0
+      },
+      ease: 'CubicBezier',
+      duration: 0.8,
+      delay: 0
+    },
+    'slide-left': {
+      from: {
+        opacity: 0,
+        x: 70
+      },
+      to: {
+        opacity: 1,
+        x: 0
+      },
+      ease: 'CubicBezier',
+      duration: 0.8,
+      delay: 0
+    },
+    'slide-right': {
+      from: {
+        opacity: 0,
+        x: -70
+      },
+      to: {
+        opacity: 1,
+        x: 0
+      },
+      ease: 'CubicBezier',
+      duration: 0.8,
+      delay: 0
+    },
+    'zoom-in': {
+      from: {
+        scale: 0.9,
+        opacity: 0,
+        filter: filterBlur()
+      },
+      to: {
+        scale: 1,
+        opacity: 1,
+        filter: 'blur(0px)'
+      },
+      delay: 0,
+      ease: 'CubicBezier',
+      duration: 0.8
+    },
+    'zoom-out': {
+      from: {
+        scale: 1.1,
+        opacity: 1,
+        filter: filterBlur()
+      },
+      to: {
+        scale: 1,
+        opacity: 1,
+        filter: 'blur(0px)'
+      },
+      delay: 0,
+      ease: 'CubicBezier',
+      duration: 0.8
+    },
+    'zoom-out-slide-right': {
+      from: {
+        scale: 1.1,
+        opacity: 1,
+        x: -70,
+        filter: filterBlur()
+      },
+      to: {
+        scale: 1,
+        opacity: 1,
+        x: 0,
+        filter: 'blur(0px)'
+      },
+      delay: 0,
+      ease: 'CubicBezier',
+      duration: 0.8
+    },
+    'zoom-out-slide-left': {
+      from: {
+        scale: 1.1,
+        opacity: 1,
+        x: 70,
+        filter: filterBlur()
+      },
+      to: {
+        scale: 1,
+        opacity: 1,
+        x: 0,
+        filter: 'blur(0px)'
+      },
+      delay: 0,
+      ease: 'CubicBezier',
+      duration: 0.8
+    },
+    'blur-in': {
+      from: {
+        opacity: 0,
+        filter: filterBlur()
+      },
+      to: {
+        opacity: 1,
+        filter: 'blur(0px)'
+      },
+      delay: 0,
+      ease: 'CubicBezier',
+      duration: 0.8
+    }
+  }; // if (utils.isRTL()) {
+  //   Object.keys(zanimationEffects).forEach((key) => {
+  //     if (zanimationEffects[key].from.x) {
+  //       zanimationEffects[key].from.x = -zanimationEffects[key].from.x;
+  //     }
+  //   });
+  // }
+
+  var currentBreakpointName = utils.getCurrentScreenBreakpoint().currentBreakpoint;
+  var currentBreakpointVal = utils.getCurrentScreenBreakpoint().breakpointStartVal;
+
+  var zanimation = function zanimation(el, callback) {
+    /*-----------------------------------------------
+    |   Get Controller
+    -----------------------------------------------*/
+    var controllerZanim;
+
+    var getController = function getController(element) {
+      var options = {};
+      var controller = {};
+
+      if (element.hasAttribute("data-zanim-".concat(currentBreakpointName))) {
+        controllerZanim = "zanim-".concat(currentBreakpointName);
+      } else {
+        /*-----------------------------------------------
+        |   Set the mobile first Animation
+        -----------------------------------------------*/
+        var animationBreakpoints = [];
+        var attributes = element.getAttributeNames();
+        attributes.forEach(function (attribute) {
+          if (attribute !== 'data-zanim-trigger' && attribute.startsWith('data-zanim-')) {
+            var breakPointName = attribute.split('data-zanim-')[1];
+
+            if (utils.breakpoints[breakPointName] < currentBreakpointVal) {
+              animationBreakpoints.push({
+                name: breakPointName,
+                size: utils.breakpoints[breakPointName]
+              });
+            }
+          }
+        });
+        controllerZanim = undefined;
+
+        if (animationBreakpoints.length !== 0) {
+          animationBreakpoints = animationBreakpoints.sort(function (a, b) {
+            return a.size - b.size;
+          });
+          var activeBreakpoint = animationBreakpoints.pop();
+          controllerZanim = "zanim-".concat(activeBreakpoint.name);
+        }
+      }
+
+      var userOptions = utils.getData(element, controllerZanim);
+      controller = window._.merge(options, userOptions);
+
+      if (!(controllerZanim === undefined)) {
+        if (userOptions.animation) {
+          options = zanimationEffects[userOptions.animation];
+        } else {
+          options = zanimationEffects["default"];
+        }
+      }
+
+      if (controllerZanim === undefined) {
+        options = {
+          delay: 0,
+          duration: 0,
+          ease: 'Expo.easeOut',
+          from: {},
+          to: {}
+        };
+      }
+      /*-----------------------------------------------
+      |   populating the controller
+      -----------------------------------------------*/
+
+
+      if (!controller.delay) {
+        controller.delay = options.delay;
+      }
+
+      if (!controller.duration) {
+        controller.duration = options.duration;
+      }
+
+      if (!controller.from) {
+        controller.from = options.from;
+      }
+
+      if (!controller.to) {
+        controller.to = options.to;
+      }
+
+      if (controller.ease) {
+        controller.to.ease = controller.ease;
+      } else {
+        controller.to.ease = options.ease;
+      }
+
+      return controller;
+    };
+    /*-----------------------------------------------
+    |   End of Get Controller
+    -----------------------------------------------*/
+
+    /*-----------------------------------------------
+    |   For Timeline
+    -----------------------------------------------*/
+
+
+    var zanimTimeline = el.hasAttribute('data-zanim-timeline');
+
+    if (zanimTimeline) {
+      var timelineOption = utils.getData(el, 'zanim-timeline');
+      var timeline = gsap.timeline(timelineOption); // const timeline = new TimelineMax(zanimTimeline);
+
+      var timelineElements = el.querySelectorAll('[data-zanim-xs], [data-zanim-sm], [data-zanim-md], [data-zanim-lg], [data-zanim-xl]');
+      timelineElements.forEach(function (timelineEl) {
+        var controller = getController(timelineEl);
+        timeline.fromTo(timelineEl, controller.duration, controller.from, controller.to, controller.delay).pause();
+        window.imagesLoaded(timelineEl, callback(timeline));
+      });
+    } else if (!el.closest('[data-zanim-timeline]')) {
+      /*-----------------------------------------------
+      |   For single elements outside timeline
+      -----------------------------------------------*/
+      var controller = getController(el);
+      callback(gsap.fromTo(el, controller.duration, controller.from, controller.to).delay(controller.delay).pause());
+    }
+
+    callback(gsap.timeline());
+  };
+  /*-----------------------------------------------
+  |   Triggering zanimation when the element enters in the view
+  -----------------------------------------------*/
+
+
+  var triggerZanimation = function triggerZanimation() {
+    var triggerElement = document.querySelectorAll("[data-zanim-trigger = 'scroll']");
+    triggerElement.forEach(function (el) {
+      if (utils.isElementIntoView(el) && el.hasAttribute('data-zanim-trigger')) {
+        zanimation(el, function (animation) {
+          return animation.play();
+        });
+
+        if (!document.querySelector('[zanim-repeat]')) {
+          el.removeAttribute('data-zanim-trigger');
+        }
+      }
+    });
+  };
+
+  triggerZanimation();
+  window.addEventListener('scroll', function () {
+    return triggerZanimation();
+  });
+};
 /* -------------------------------------------------------------------------- */
 
 /*                            Theme Initialization                            */
@@ -436,4 +859,5 @@ var navbarInit = function navbarInit() {
 
 docReady(navbarInit);
 docReady(detectorInit);
+docReady(zanimationInit);
 //# sourceMappingURL=theme.js.map

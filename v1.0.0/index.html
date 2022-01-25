@@ -38,7 +38,7 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 backdrop d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 backdrop d-block" data-navbar-on-scroll="light">
         <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/icons/Logo.png" height="35" alt="logo" /></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-center">
@@ -46,8 +46,8 @@
               <li class="nav-item px-2"><a class="nav-link" href="#feature">Customers</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="#section">Pricing</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="#autopilot">Docs </a></li>
-              <form class="d-flex py-2 py-lg-0"><button class="btn btn-primary" type="submit">Sign Up</button></form>
             </ul>
+            <form class="d-flex py-2 py-lg-0"><button class="btn btn-primary" type="submit">Sign Up</button></form>
           </div>
         </div>
       </nav>
@@ -59,9 +59,9 @@
         <div class="container h-100">
           <div class="row align-items-center h-100 justify-content-center justify-content-lg-start">
             <div class="col-md-9 col-lg-6 col-xxl-5 text-md-start text-center py-6 pt-8">
-              <h1 class="fs-4 fs-md-4 fs-xxl-4 fw-bold">Balance agility with stability</h1>
-              <p class="fs-1 fs-sm-0 fs-xxl-0 mb-3">Gohub monitors application stability, so you can make data-driven decision on whether you should be building new features, or fixing bugs. </p>
-              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start"><a class="btn btn-sm btn-primary me-1" href="#!" role="button">Get started</a><a class="btn btn-sm btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a></div>
+              <h1 class="fs-4 fs-md-4 fs-xxl-4 fw-bold" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">Balance agility with stability</h1>
+              <p class="fs-1 fs-sm-0 fs-xxl-0 mb-3" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Gohub monitors application stability, so you can make data-driven decision on whether you should be building new features, or fixing bugs. </p>
+              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll"><a class="btn btn-sm btn-primary me-1" href="#!" role="button">Get started</a><a class="btn btn-sm btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a></div>
             </div>
           </div>
         </div>
@@ -118,8 +118,8 @@
       <section id="feature">
         <div class="container">
           <div class="container">
-            <h1 class="text-center display-5 fw-semi-bold"> Proof makes increasing conversion simple</h1>
-            <p class="text-center fs-0 fs-md-1">Getting a conversion boost didn't used to be this easy. Luckily, you found Proof. Now <br class="d-none d-lg-block" />you have the tools to let your customer do the selling for you.</p>
+            <h1 class="text-center display-5 fw-semi-bold" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll"> Proof makes increasing conversion simple</h1>
+            <p class="text-center fs-0 fs-md-1" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll"> Getting a conversion boost didn't used to be this easy. Luckily, you found Proof. Now <br class="d-none d-lg-block" />you have the tools to let your customer do the selling for you.</p>
             <div class="row mb-2 mt-6">
               <div class="col-md-6 col-lg-3">
                 <div class="text-center">
@@ -233,11 +233,10 @@
       <!-- <section> begin ============================-->
       <section id="section">
         <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-6 mb-4"><img class="w-100" src="assets/img/illustration/4.png" alt="..." /></div>
-            <div class="col-md-6 text-center text-md-start mb-6 px-4">
-              <h4 class="fw-normal fs-3">Your safety is always <br />a top priority</h4>
-              <p class="fs-0 pe-xl-8">We are committed to help drivers and riders get where they want to go with confidence</p>
+          <div class="row flex-center">
+            <div class="col-md-6 text-center text-md-start">
+              <h4 class="fw-normal fs-3" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Your safety is always <br />a top priority</h4>
+              <p class="fs-0 pe-xl-8" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">We are committed to help drivers and riders get where they want to go with confidence</p>
               <div class="d-flex justify-content-space-between align-item-center my-3 mt-2">
                 <div>
                   <h4 class="fw-normal fs-1">Drive</h4>
@@ -248,10 +247,9 @@
                   <p class="my-1 fs-0 pe-xl-8">Tap your phone. Get where you're headed</p>
                 </div>
               </div>
-              <div class="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-start text-center">
-                <btn class="btn-sm btn-primary my-2 me-1" href="#!" role="button">Get started</btn><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
-              </div>
+              <btn class="btn-sm btn-primary my-2 me-1" href="#!" role="button">Get started</btn><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
             </div>
+            <div class="col-md-6 mb-4"><img class="w-100" src="assets/img/illustration/4.png" alt="..." /></div>
           </div>
         </div><!-- end of .container-->
       </section><!-- <section> close ============================-->
@@ -261,13 +259,13 @@
 
       <!-- ============================================-->
       <!-- <section> begin ============================-->
-      <section>
+      <section class="py-8">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-md-6 mb-4"><img class="w-100" src="assets/img/illustration/5.png" alt="..." /></div>
-            <div class="col-md-6 text-center text-md-start mb-6 px-4">
-              <h4 class="fs-3 fw-normal">Move the way you want Roads are always open</h4>
-              <p class="fs-0 pe-xl-7">Opportunity is everything. Get out there and find it with Uber.</p>
+            <div class="col-md-6 text-center text-md-start">
+              <h4 class="fs-3 fw-normal" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Move the way you want, Roads are always open</h4>
+              <p class="fs-0 pe-xl-7" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">Opportunity is everything. Get out there and find it with Uber.</p>
               <div class="d-flex justify-content-center align-item-center my-3 mt-2">
                 <div>
                   <h4 class="fw-normal fs-1">Drive</h4>
@@ -278,9 +276,7 @@
                   <p class="my-1 fs-0 pe-xl-8">Tap your phone. Get where you're headed</p>
                 </div>
               </div>
-              <div class="d-flex flex-column flex-lg-row justify-content-center justify-content-md-start">
-                <btn class="btn-sm btn-primary btn-bg-purple my-2 me-1" href="#!" role="button">Get started</btn><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
-              </div>
+              <btn class="btn-sm btn-primary btn-bg-purple my-2 me-1" href="#!" role="button">Get started</btn><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
             </div>
           </div>
         </div><!-- end of .container-->
@@ -427,6 +423,11 @@
     <script src="vendors/lodash/lodash.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="vendors/prism/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="vendors/gsap/customEase.js"></script>
+    <script src="vendors/gsap/scrollToPlugin.js"></script>
+    <script src="vendors/gsap/drawSVGPlugin.js"></script>
     <script src="assets/js/theme.js"></script>
   </body>
 
