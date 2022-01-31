@@ -28,7 +28,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
-    <link href="vendors/prism/prism.css" rel="stylesheet">
     <link href="assets/css/theme.min.css" rel="stylesheet" />
     <link href="assets/css/user.min.css" rel="stylesheet" />
   </head>
@@ -38,7 +37,7 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 backdrop d-block" data-navbar-on-scroll="light">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="light">
         <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/icons/Logo.png" height="35" alt="logo" /></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-center">
@@ -46,21 +45,20 @@
               <li class="nav-item px-2"><a class="nav-link" href="#feature">Customers</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="#section">Pricing</a></li>
               <li class="nav-item px-2"><a class="nav-link" href="#autopilot">Docs </a></li>
-            </ul>
-            <form class="d-flex py-2 py-lg-0"><button class="btn btn-primary" type="submit">Sign Up</button></form>
+            </ul><button class="btn btn-primary">Sign Up</button>
           </div>
         </div>
       </nav>
       <section class="hero-section py-7 py-lg-10" id="home">
         <div class="bg-holder bg-size" style="background-image:url(assets/img/illustration/2.png);background-position:left top;background-size:800px auto;"></div>
         <!--/.bg-holder-->
-        <div class="bg-holder bg-size d-none d-lg-block hero-bg" style="background-image:url(assets/img/illustration/1.png);background-position:right top;"></div>
+        <div class="bg-holder d-none d-lg-block hero-bg" style="background-image:url(assets/img/illustration/1.png);background-position:right top;"></div>
         <!--/.bg-holder-->
-        <div class="container h-100">
+        <div class="container">
           <div class="row align-items-center h-100 justify-content-center justify-content-lg-start">
             <div class="col-md-9 col-lg-6 col-xxl-5 text-md-start text-center py-6 pt-8">
-              <h1 class="fs-4 fs-md-4 fs-xxl-4 fw-bold" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">Balance agility with stability</h1>
-              <p class="fs-1 fs-sm-0 fs-xxl-0 mb-3" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Gohub monitors application stability, so you can make data-driven decision on whether you should be building new features, or fixing bugs. </p>
+              <h1 class="fs-4 fs-md-4 fs-xxl-4" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Balance agility with stability</h1>
+              <p class="fs-1" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Gohub monitors application stability, so you can make data-driven decision on whether you should be building new features, or fixing bugs. </p>
               <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-md-start" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll"><a class="btn btn-sm btn-primary me-1" href="#!" role="button">Get started</a><a class="btn btn-sm btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a></div>
             </div>
           </div>
@@ -71,39 +69,29 @@
       <!-- <section> begin ============================-->
       <section id="service">
         <div class="container">
-          <div class="row mb-4 mt-0">
-            <div class="col-md-6">
-              <div class="h-100 features-items text-center text-md-start">
-                <div class="p-0 p-md-5 pb-3">
-                  <h2 class="pt-3">Improve the stability of your application</h2>
-                  <p class="mb-0">Bugsnag monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
-                </div>
-              </div>
+          <div class="row mb-4">
+            <div class="col-md-6 h-100 text-center text-md-start p-0 p-md-5 pb-3">
+              <h2 class="mt-3">Improve the stability of your application</h2>
+              <p class="mb-0">Bugsnag monitors application stability, so you can make data-driven decisions on whether you should be building new features, or fixing bugs.</p>
             </div>
             <div class="col-md-6">
-              <div class="w-100 h-100 features-items shadow">
-                <div class="p-5"><img src="assets/img/icons/1.png" alt="Dashboard" style="width:95px;height:70px;" />
-                  <h3 class="pt-3 lh-base">Be visible to &quot;like</h3>
-                  <p class="mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise layouts for previewing layouts and visual mockups.</p>
-                </div>
+              <div class="w-100 h-100 p-5 shadow"><img src="assets/img/icons/1.png" alt="Dashboard" style="width:95px;" />
+                <h3 class="mt-3 lh-base">Be visible to &quot;like</h3>
+                <p class="mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise layouts for previewing layouts and visual mockups.</p>
               </div>
             </div>
           </div>
           <div class="row mb-4">
             <div class="col-md-6">
-              <div class="w-100 h-100 features-items shadow">
-                <div class="p-5"><img src="assets/img/icons/2.png" alt="Comment" style="width:95px;height:70px;" />
-                  <h3 class="pt-3 lh-base">Monitor Online</h3>
-                  <p class="mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise layouts for previewing layouts and visual mockups.</p>
-                </div>
+              <div class="w-100 h-100 p-5 shadow"><img src="assets/img/icons/2.png" alt="Comment" style="width:95px;" />
+                <h3 class="mt-3 lh-base">Monitor Online</h3>
+                <p class="mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise layouts for previewing layouts and visual mockups.</p>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="w-100 h-100 features-items shadow">
-                <div class="p-5"><img src="assets/img/icons/3.png" alt="Tailored" style="width:95px;height:70px;" />
-                  <h3 class="pt-3 lh-base">More Income</h3>
-                  <p class="mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise layouts for previewing layouts and visual mockups.</p>
-                </div>
+              <div class="w-100 h-100 p-5 shadow"><img src="assets/img/icons/3.png" alt="Tailored" style="width:95px;" />
+                <h3 class="mt-3 lh-base">More Income</h3>
+                <p class="mb-0">A pseudo-Latin text used in web design, layout, and printing in place of things to emphasise layouts for previewing layouts and visual mockups.</p>
               </div>
             </div>
           </div>
@@ -117,110 +105,60 @@
       <!-- <section> begin ============================-->
       <section id="feature">
         <div class="container">
-          <div class="container">
-            <h1 class="text-center display-5 fw-semi-bold" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll"> Proof makes increasing conversion simple</h1>
-            <p class="text-center fs-0 fs-md-1" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll"> Getting a conversion boost didn't used to be this easy. Luckily, you found Proof. Now <br class="d-none d-lg-block" />you have the tools to let your customer do the selling for you.</p>
-            <div class="row mb-2 mt-6">
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/4.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">High Conversions</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/5.png" alt="Comment" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Save on Acquisition</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/6.png" alt="Tailored" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Increase Visitor Trust</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/7.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Social Influence</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
+          <h1 class="text-center display-5 fw-semi-bold" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll"> Proof makes increasing conversion simple</h1>
+          <p class="text-center fs-0 fs-md-1" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll"> Getting a conversion boost didn't used to be this easy. Luckily, you found Proof. Now <br class="d-none d-lg-block" />you have the tools to let your customer do the selling for you.</p>
+          <div class="row mb-2 mt-6">
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/4.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">High Conversions</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
             </div>
-            <div class="row mb-4">
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/8.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Activity Notifications</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/9.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Customer Journeys</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/10.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Custom Timing</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/11.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Live Visitor Count</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/5.png" alt="Comment" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Save on Acquisition</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
             </div>
-            <div class="row mb-4">
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/12.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Visitor Identification</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/13.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Custome Rules</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/14.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Mobile Optimized</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3">
-                <div class="text-center">
-                  <div class="p-1"><img src="assets/img/icons/15.png" alt="Dashboard" style="width:95px;height:90px;" />
-                    <h4 class="pt-3 lh-base">Language Translation</h4>
-                    <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
-                  </div>
-                </div>
-              </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/6.png" alt="Tailored" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Increase Trust</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/7.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Social Influence</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/8.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Activity Notifications</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/9.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Custom Journeys</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/10.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Custom Timing</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/11.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Live Visitor Count</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/12.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Visitor Identification</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/13.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Custom Rules</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/14.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Mobile Optimized</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center p-1"><img src="assets/img/icons/15.png" alt="Dashboard" style="width:95px;" />
+              <h4 class="mt-3 lh-base">Language Translation</h4>
+              <p class="fs-0">A pseudo-Latin text used in web design, layout.</p>
             </div>
           </div>
         </div><!-- end of .container-->
@@ -235,8 +173,8 @@
         <div class="container">
           <div class="row flex-center">
             <div class="col-md-6 text-center text-md-start">
-              <h4 class="fw-normal fs-3" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Your safety is always <br />a top priority</h4>
-              <p class="fs-0 pe-xl-8" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">We are committed to help drivers and riders get where they want to go with confidence</p>
+              <h4 class="fw-normal fs-3" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Your safety is always <br />a top priority</h4>
+              <p class="fs-0 pe-xl-8" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">We are committed to help drivers and riders get where they want to go with confidence</p>
               <div class="d-flex justify-content-space-between align-item-center my-3 mt-2">
                 <div>
                   <h4 class="fw-normal fs-1">Drive</h4>
@@ -246,8 +184,7 @@
                   <h4 class="fw-normal fs-1">Ride</h4>
                   <p class="my-1 fs-0 pe-xl-8">Tap your phone. Get where you're headed</p>
                 </div>
-              </div>
-              <btn class="btn-sm btn-primary my-2 me-1" href="#!" role="button">Get started</btn><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
+              </div><button class="btn btn-sm btn-primary my-2 me-1" href="#!" role="button">Get started</button><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
             </div>
             <div class="col-md-6 mb-4"><img class="w-100" src="assets/img/illustration/4.png" alt="..." /></div>
           </div>
@@ -264,16 +201,16 @@
           <div class="row align-items-center">
             <div class="col-md-6 mb-4"><img class="w-100" src="assets/img/illustration/5.png" alt="..." /></div>
             <div class="col-md-6 text-center text-md-start">
-              <h4 class="fs-3 fw-normal" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Move the way you want, Roads are always open</h4>
-              <p class="fs-0 pe-xl-7" data-zanim-xs='{"delay":0.4}' data-zanim-trigger="scroll">Opportunity is everything. Get out there and find it with Uber.</p>
+              <h4 class="fs-3 fw-normal" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Move the way you want, Roads are always open</h4>
+              <p class="fs-0 pe-xl-7" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Opportunity is everything. Get out there and find it with Uber.</p>
               <div class="d-flex justify-content-center align-item-center my-3 mt-2">
                 <div>
-                  <h4 class="fw-normal fs-1">Drive</h4>
-                  <p class="my-1 fs-0 pe-xl-8">Drive when you want. Find ooprtunities around you.</p>
+                  <h4 class="fw-normal fs-1">Route</h4>
+                  <p class="my-1 fs-0 pe-xl-8">Route among the safe roads. Find what's waiting for you.</p>
                 </div>
                 <div>
-                  <h4 class="fw-normal fs-1">Ride</h4>
-                  <p class="my-1 fs-0 pe-xl-8">Tap your phone. Get where you're headed</p>
+                  <h4 class="fw-normal fs-1">Share</h4>
+                  <p class="my-1 fs-0 pe-xl-8">Your caring gets it's way. Let your people know.</p>
                 </div>
               </div>
               <btn class="btn-sm btn-primary btn-bg-purple my-2 me-1" href="#!" role="button">Get started</btn><a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
@@ -293,12 +230,12 @@
               <p class="fs-0 mb-3">Gohub monitors application stability, so you can make data-driven decision on whether you should be building new features, or fixing bugs.</p>
             </div>
           </div>
-          <div class="row align-items-center mt-5">
+          <div class="row align-items-center mt-7">
             <h4 class="fs-2 fw-normal">Save Time</h4>
             <ul class="list-unstyled">
-              <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>specific access/rights by users</li>
-              <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Physical and virtual Mastercards with adjestable payment limits</li>
-              <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Dashboards to follow-up on your expenses</li>
+              <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>intuitive process and single interface</li>
+              <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Online and paperless</li>
+              <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Real-time notification</li>
             </ul>
           </div>
         </div>
@@ -309,15 +246,15 @@
             <div class="col-md-6 text-md-start">
               <h4 class="fs-2 fw-normal">Monitor your expenses</h4>
               <ul class="list-unstyled">
-                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>specific access/rights by users</li>
-                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Physical and virtual Mastercards with adjestable payment limits</li>
-                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Dashboards to follow-up on your expenses</li>
+                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>intuitive process and single interface</li>
+                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Online and paperless</li>
+                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Real-time notification</li>
               </ul>
             </div>
             <div class="col-md-6 mt-4 mt-md-0 text-start">
               <h4 class="fs-2 fw-normal">Make accounting easier</h4>
               <ul class="list-unstyled">
-                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>specific access/rights by users</li>
+                <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Specific access/rights by users</li>
                 <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Physical and virtual Mastercards with adjestable payment limits</li>
                 <li class="mb-3 text-900 fs-0"><span class="far fa-check-circle text-700 me-2"></span>Dashboards to follow-up on your expenses</li>
               </ul>
@@ -336,10 +273,7 @@
               <p class="text-3">Get an guided demo with an OKR expert.</p>
             </div>
             <div class="col-lg-6">
-              <form class="row g-0 align-items-center">
-                <div class="col"><input class="form-control text-light rounded-end-0" type="email" placeholder="Email Address" /></div>
-                <div class="col-sm-auto"><button class="btn btn-primary rounded-start-0 px-3" type="submit">Get Started</button></div>
-              </form>
+              <div class="input-group"> <input class="form-control" type="text" placeholder="Email Address" /><button class="btn btn-primary rounded-start-0 px-3" type="submit">Get Started</button></div>
             </div>
           </div>
         </div><!-- end of .container-->
@@ -422,12 +356,11 @@
     <script src="vendors/fontawesome/all.min.js"></script>
     <script src="vendors/lodash/lodash.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-    <script src="vendors/prism/prism.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
     <script src="vendors/imagesloaded/imagesloaded.pkgd.js"></script>
     <script src="vendors/gsap/customEase.js"></script>
     <script src="vendors/gsap/scrollToPlugin.js"></script>
-    <script src="vendors/gsap/drawSVGPlugin.js"></script>
+    <!--script(src=`${CWD}vendors/gsap/drawSVGPlugin.js`)-->
     <script src="assets/js/theme.js"></script>
   </body>
 
