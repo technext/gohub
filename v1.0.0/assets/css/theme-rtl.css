@@ -20063,20 +20063,6 @@ ul {
   color: var(--gohub-alert-dark-link-color);
 }
 
-.hero-section .hero-bg {
-  background-size: 55% 75% !important;
-}
-@media (min-width: 1140px) {
-  .hero-section .hero-bg {
-    background-size: 55% 80% !important;
-  }
-}
-@media (min-width: 1440px) {
-  .hero-section .hero-bg {
-    background-size: 55% 100% !important;
-  }
-}
-
 .shadow {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
