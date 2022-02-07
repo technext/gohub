@@ -20086,19 +20086,6 @@ ul {
   color: var(--gohub-alert-dark-link-color);
 }
 
-.card {
-  border-radius: 2% o !important;
-}
-
-.shadow {
-  -webkit-box-shadow: var(--gohub-box-shadow) !important;
-  box-shadow: var(--gohub-box-shadow) !important;
-}
-
-.py-8 {
-  padding-top: 18rem !important;
-}
-
 /* -------------------------------------------------------------------------- */
 /*                                    Badge                                   */
 /* -------------------------------------------------------------------------- */
@@ -20271,6 +20258,11 @@ ul {
 .card-blog .overlay-gradient:hover, .card-blog .overlay-gradient:focus {
   background: -o-linear-gradient(225deg, rgba(6, 26, 85, 0) 0%, rgba(1, 19, 61, 0.9) 65.07%);
   background: linear-gradient(225deg, rgba(6, 26, 85, 0) 0%, rgba(1, 19, 61, 0.9) 65.07%);
+}
+
+.services-card-shadow {
+  -webkit-box-shadow: var(--gohub-box-shadow) !important;
+  box-shadow: var(--gohub-box-shadow) !important;
 }
 
 /* -------------------------------------------------------------------------- */
